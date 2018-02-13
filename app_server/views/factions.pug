@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1= 'World Of Warcraft Guild rankings with factions Tier 8'
+  ul
+    each rank in ranks
+      li= rank.mones + ': ' + rank.faction + ' (' + rank.kilta + ')'
+
