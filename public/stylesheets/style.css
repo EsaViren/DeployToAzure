@@ -1,8 +1,25 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 15px Lato, sans-serif;
+    text-align: center;
 }
 
 a {
-  color: #00B7FF;
+  color: darkgoldenrod;
+}
+
+ul {
+    list-style-type: none;
+}
+
+nav {
+    background-color: #2d2d30;
+}
+
+.container {
+    padding: 40px;
+}
+
+footer {
+    background-color: #2d2d30;
+    color: #cecece;
 }
