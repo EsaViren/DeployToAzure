@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const guildsModel = mongoose.model('guilds');
 
-const guildList = function (req, res) {
+const rankList = function (req, res) {
     res
         .status(200)
         .json({"mones" : "kilta"});
@@ -13,6 +13,6 @@ const addGuild = function (req, res) {
 };
 
 module.exports = {
-    guildList,
+    rankList,
     addGuild
 };

@@ -1,7 +1,7 @@
 const request = require('request');
 const apiURL = require('./apiURLs');
 
-const guildList = function(req, res){
+const rankList = function(req, res){
     const path = '/api/guilds';
     const requestOptions = {
         url : apiURL.server + path,
@@ -24,11 +24,11 @@ const guildList = function(req, res){
             } else if (!body.length){
                 res.render('error', {message: 'No documents in collection'});
             } else {
-                res.render('guilds', {guild: body});
+                res.render('wow', {rankList: body});
             }
         }
     );
 };
 module.exports = {
-    guildList
+    rankList
 };
