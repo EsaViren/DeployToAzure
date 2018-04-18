@@ -1,15 +1,34 @@
-/* GET home page */
-const ranklist = function(req, res){
-    res.render('factions',{
-        ranks:
-        [
-            {mones:'1', faction:'Horde', kilta: 'Ensidia'},
-            {mones:'2', faction:'Horde', kilta: 'Stars'},
-            {mones:'3', faction:'Alliance', kilta: 'Premonition'},
-            {mones:'4', faction:'Horde', kilta: 'Paragon'},
-            {mones:'5', faction:'Alliance', kilta: 'Method'}
-        ]});
+const request = require('request');
+const apiURL = require('./apiURLs');
+
+const factionList = function(req, res){
+    const path = '/api/factions';
+    const requestOptions = {
+        url : apiURL.server + path,
+        method : 'GET',
+        json : {},
+        qs : {}
+    };
+
+    request(
+        requestOptions,
+        function (err, response, body){
+            if (err){
+                res.render('error', {message: err.message});
+            } else if (response.statusCode !== 200){
+                res.render('error', {message: 'Error accessing API: ' +
+                    response.statusMessage +
+                    ' ('+ response.statusCode + ')' });
+            } else if (!(body instanceof Array)) {
+                res.render('error', {message: 'Unexpected response data'});
+            } else if (!body.length){
+                res.render('error', {message: 'No documents in collection'});
+            } else {
+                res.render('factions', {faction: body});
+            }
+        }
+    );
 };
 module.exports = {
-    ranklist
+    factionList
 };
