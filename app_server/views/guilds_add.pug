@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    .row
+        h4 New guild
+    form(action="", method="post")
+        .form-group.row
+            label Name
+                input.form-control(name="name")
+        .form-group.row
+            label Faction
+                input.form-control(name="faction")
+        .form-group.row
+            button.btn-primary Add

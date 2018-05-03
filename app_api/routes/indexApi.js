@@ -6,12 +6,12 @@ const ctrlApiGuilds = require('../controllers/ctrlApiGuilds');
 
 router
     .route('/guilds')
-    .get(ctrlApiGuilds.guildList)
+    .get(ctrlApiGuilds.rankList)
     .post(ctrlApiGuilds.addGuild);
 
 router
     .route('/factions')
-    .get(ctrlApiFactions.factionList)
+    .get(ctrlApiFactions.rankList)
     .post(ctrlApiFactions.addFaction);
 
 module.exports = router;

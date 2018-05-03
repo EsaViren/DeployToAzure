@@ -5,6 +5,6 @@ const ctrlGuilds = require('../controllers/ctrlGuilds');
 
 
 
-router.get('/', ctrlGuilds.ranklist);
+router.get('/', ctrlGuilds.rankList);
 
 module.exports = router;

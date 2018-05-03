@@ -7,7 +7,12 @@ const ctrlFactions = require('../controllers/ctrlFactions');
 
 /* GET home page. */
 router.get('/', ctrlMain.index);
-router.get('/', ctrlGuilds.rankList);
-router.get('/', ctrlFactions.rankList);
+router.get('/guilds', ctrlGuilds.rankList);
+router.get('/factions', ctrlFactions.rankList);
+
+router
+    .route('/guilds/add')
+    .get(ctrlGuilds.showForm)
+    .post(ctrlGuilds.addData);
 
 module.exports = router;

@@ -7,6 +7,7 @@ block content
       .col-12
   h1= 'World Of Warcraft Guild rankings at Tier 8'
   ul
-    each rank in ranks
+    each rank in rank
       li= rank.mones + ': ' + rank.kilta
+      a(href='/guilds/add') Add new guild
 

@@ -4,6 +4,6 @@ const router = express.Router();
 const ctrlFactions = require('../controllers/ctrlFactions');
 
 
-router.get('/', ctrlFactions.ranklist);
+router.get('/', ctrlFactions.rankList);
 
 module.exports = router;

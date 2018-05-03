@@ -1,6 +1,38 @@
 const request = require('request');
 const apiURL = require('./apiURLs');
 
+const showForm = function(req, res){
+    res.render('guilds_add');
+};
+
+const addData = function(req, res){
+    const path = '/api/guilds';
+
+    const postdata = {
+        mones: req.body.mones,
+        kilta: req.body.kilta
+    };
+
+    const requestOptions = {
+        url : apiURL.server + path,
+        method : 'POST',
+        json : postdata
+    };
+
+    request(
+        requestOptions,
+        function (err, response){
+            if (response.statusCode === 201) {
+                res.redirect('/guilds');
+            } else {
+                res.render('error', {message: 'Error adding data: ' +
+                    response.statusMessage +
+                    ' ('+ response.statusCode + ')' });
+            }
+        }
+    );
+};
+
 const rankList = function(req, res){
     const path = '/api/guilds';
     const requestOptions = {
@@ -24,11 +56,13 @@ const rankList = function(req, res){
             } else if (!body.length){
                 res.render('error', {message: 'No documents in collection'});
             } else {
-                res.render('wow', {rankList: body});
+                res.render('guilds', {guilds: body});
             }
         }
     );
 };
 module.exports = {
-    rankList
+    rankList,
+    showForm,
+    addData
 };

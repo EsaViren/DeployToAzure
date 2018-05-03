@@ -3,7 +3,7 @@ const apiURL = {
 };
 
 if (process.env.NODE_ENV === 'production') {
-    apiURL.server = 'https://viren.azurewebsites.net'
+    apiURL.server = 'https://viren.azurewebsites.net';
 }
 
 module.exports = apiURL;

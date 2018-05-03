@@ -24,7 +24,7 @@ const rankList = function(req, res){
             } else if (!body.length){
                 res.render('error', {message: 'No documents in collection'});
             } else {
-                res.render('wow', {rankList: body});
+                res.render('factions', {factions: body});
             }
         }
     );
